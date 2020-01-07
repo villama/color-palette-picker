@@ -3,10 +3,32 @@ import './ColorBox.css'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 export default class ColorBox extends Component {
+  state = {
+    isOverlaying: false
+  }
+
+  startOverlay = () => {
+    console.log('Starting animation')
+    this.setState({ isOverlaying: true }, () => {
+      setTimeout(() => this.setState({ isOverlaying: false }), 1500)
+    })
+  }
+
   render() {
     return (
-      <CopyToClipboard text={this.props.color}>
+      <CopyToClipboard
+        text={this.props.color.toUpperCase()}
+        onCopy={this.startOverlay}
+      >
         <div className='ColorBox' style={{ backgroundColor: this.props.color }}>
+          <div
+            className={`copy-overlay ${this.state.isOverlaying && 'show'}`}
+            style={{ backgroundColor: this.props.color }}
+          />
+          <div className={`copy-msg ${this.state.isOverlaying && 'show'}`}>
+            <h1>Copied</h1>
+            <p>{this.props.color.toUpperCase()}</p>
+          </div>
           <div className='copy-container'>
             <div className='box-content'>
               <span>{this.props.name}</span>
