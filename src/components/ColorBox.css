@@ -27,7 +27,7 @@
   text-transform: uppercase;
   border: none;
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.25s;
 }
 
 .ColorBox:hover .copy-button {
