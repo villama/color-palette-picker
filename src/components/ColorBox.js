@@ -17,17 +17,17 @@ export default class ColorBox extends Component {
   render() {
     return (
       <CopyToClipboard
-        text={this.props.color.toUpperCase()}
+        text={this.props.hex.toUpperCase()}
         onCopy={this.startOverlay}
       >
-        <div className='ColorBox' style={{ backgroundColor: this.props.color }}>
+        <div className='ColorBox' style={{ backgroundColor: this.props.hex }}>
           <div
             className={`copy-overlay ${this.state.isOverlaying && 'show'}`}
-            style={{ backgroundColor: this.props.color }}
+            style={{ backgroundColor: this.props.hex }}
           />
           <div className={`copy-msg ${this.state.isOverlaying && 'show'}`}>
             <h1>Copied</h1>
-            <p>{this.props.color.toUpperCase()}</p>
+            <p>{this.props.hex.toUpperCase()}</p>
           </div>
           <div className='copy-container'>
             <div className='box-content'>
