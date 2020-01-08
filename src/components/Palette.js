@@ -27,14 +27,13 @@ export default class Palette extends Component {
         />
         <div className='Palette-colors'>
           {this.props.palette.colors[this.state.level].map(c => (
-            <ColorBox
-              key={c[this.state.format]}
-              background={c[this.state.format]}
-              {...c}
-            />
+            <ColorBox key={c.id} background={c[this.state.format]} {...c} />
           ))}
         </div>
-        {/* Footer */}
+        <footer className='Palette-footer'>
+          {this.props.palette.paletteName}
+          <span className='emoji'>{this.props.palette.emoji}</span>
+        </footer>
       </div>
     )
   }
