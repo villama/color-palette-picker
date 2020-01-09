@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './ColorBox.css'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { Link } from 'react-router-dom'
 
 export default class ColorBox extends Component {
   state = {
@@ -8,7 +9,6 @@ export default class ColorBox extends Component {
   }
 
   startOverlay = () => {
-    console.log('Starting animation')
     this.setState({ isOverlaying: true }, () => {
       setTimeout(() => this.setState({ isOverlaying: false }), 1500)
     })
@@ -38,7 +38,9 @@ export default class ColorBox extends Component {
             </div>
             <button className='copy-button'>Copy</button>
           </div>
-          <span className='see-more'>More</span>
+          <Link to='/' onClick={e => e.stopPropagation()}>
+            <span className='see-more'>More</span>
+          </Link>
         </div>
       </CopyToClipboard>
     )

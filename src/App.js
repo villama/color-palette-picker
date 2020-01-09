@@ -34,6 +34,10 @@ export default class App extends Component {
             />
           )}
         />
+        <Route
+          path='/palette/:pid/:cid'
+          render={() => <h1>Single color page</h1>}
+        />
       </Switch>
     )
   }
