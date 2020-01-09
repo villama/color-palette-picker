@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/styles'
 const styles = {
   root: {
     backgroundColor: 'gray',
-    height: '100%',
+    height: '100vh',
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center'
@@ -44,12 +44,12 @@ class PaletteList extends Component {
             <h1>React Colors</h1>
           </nav>
           <div className={classes.palettes}>
-            {this.props.palettes.map(p => (
-              <p>
+            {palettes.map(p => (
+              <div key={p.id}>
                 {/* <Link to={`/palette/${p.id}`}> */}
                 <MiniPalette {...p} />
                 {/* </Link> */}
-              </p>
+              </div>
             ))}
           </div>
         </div>
