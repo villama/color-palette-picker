@@ -34,6 +34,7 @@ export default class Palette extends Component {
               {...c}
               id={c.id}
               paletteId={this.props.palette.id}
+              showingFullPalette
             />
           ))}
         </div>
