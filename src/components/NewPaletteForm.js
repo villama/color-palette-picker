@@ -80,7 +80,7 @@ class NewPaletteForm extends Component {
     open: true,
     currentColor: 'teal',
     newName: '',
-    colors: [{ color: 'blue', name: 'blue' }]
+    colors: [{ name: 'blue', color: 'blue' }]
   }
 
   componentDidMount() {
@@ -111,8 +111,8 @@ class NewPaletteForm extends Component {
 
   addNewColor = () => {
     const newColor = {
-      color: this.state.currentColor,
-      name: this.state.newName
+      name: this.state.newName,
+      color: this.state.currentColor
     }
     this.setState(st => ({
       colors: [...st.colors, newColor],
@@ -124,6 +124,19 @@ class NewPaletteForm extends Component {
     this.setState({ newName: evt.target.value })
   }
 
+  handleSubmit = () => {
+    const newName = 'New Test Palette'
+    const newPalette = {
+      paletteName: newName,
+      id: newName.toLowerCase().replace(/ /g, '-'),
+      emoji: '',
+      colors: this.state.colors
+    }
+
+    this.props.savePalette(newPalette)
+    this.props.history.push('/')
+  }
+
   render() {
     const { classes } = this.props
     const { open } = this.state
@@ -133,6 +146,7 @@ class NewPaletteForm extends Component {
         <CssBaseline />
         <AppBar
           position='fixed'
+          color='default'
           className={classNames(classes.appBar, {
             [classes.appBarShift]: open
           })}
@@ -149,6 +163,13 @@ class NewPaletteForm extends Component {
             <Typography variant='h6' color='inherit' noWrap>
               Persistent drawer
             </Typography>
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={this.handleSubmit}
+            >
+              Save Palette
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -209,9 +230,9 @@ class NewPaletteForm extends Component {
           <div className={classes.drawerHeader} />
           {this.state.colors.map(color => (
             <DraggableColorBox
-              color={color.color}
               key={color.name}
               name={color.name}
+              color={color.color}
             />
           ))}
         </main>
