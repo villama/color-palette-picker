@@ -1,11 +1,11 @@
 export default {
   root: {
     backgroundColor: 'gray',
-    height: '100vh',
+    height: '800px',
     display: 'flex',
     alignItems: 'flex-start',
-    justifyContent: 'center',
-    marginBottom: '50px'
+    justifyContent: 'center'
+    // marginBottom: '50px'
   },
   container: {
     width: '50%',
@@ -13,6 +13,7 @@ export default {
     alignItems: 'flex-start',
     flexDirection: 'column',
     flexWrap: 'wrap'
+    // padding: '50px'
   },
   nav: {
     display: 'flex',
