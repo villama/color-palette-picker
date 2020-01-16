@@ -39,6 +39,6 @@ export default {
     display: 'inline-block',
     margin: '0 auto',
     position: 'relative',
-    marginBottom: '-3.5px'
+    marginBottom: '-5px'
   }
 }
