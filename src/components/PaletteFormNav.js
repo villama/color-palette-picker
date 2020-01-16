@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import Button from '@material-ui/core/Button'
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
+import { ValidatorForm } from 'react-material-ui-form-validator'
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 import PaletteMetaForm from './PaletteMetaForm'
@@ -73,6 +73,10 @@ class PaletteFormNav extends Component {
     this.setState({ saveFormShowing: true })
   }
 
+  hideSaveForm = () => {
+    this.setState({ saveFormShowing: false })
+  }
+
   render() {
     const { classes, open } = this.props
     return (
@@ -119,7 +123,10 @@ class PaletteFormNav extends Component {
           </div>
         </AppBar>
         {this.state.saveFormShowing && (
-          <PaletteMetaForm handleSubmit={this.props.handleSubmit} />
+          <PaletteMetaForm
+            handleSubmit={this.props.handleSubmit}
+            hideSaveForm={this.hideSaveForm}
+          />
         )}
       </div>
     )
