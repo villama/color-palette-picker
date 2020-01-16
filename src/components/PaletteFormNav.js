@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button'
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
+import PaletteMetaForm from './PaletteMetaForm'
 
 const drawerWidth = 400
 
@@ -84,26 +85,7 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
-            <ValidatorForm
-              onSubmit={() =>
-                this.props.handleSubmit(this.state.newPaletteName)
-              }
-            >
-              <TextValidator
-                label='Palette Name'
-                name='newPaletteName'
-                value={this.state.newPaletteName}
-                onChange={this.handleChange}
-                validators={['required', 'isPaletteNameUnique']}
-                errorMessages={[
-                  'Enter a name for your Palette',
-                  'Name already used'
-                ]}
-              />
-              <Button variant='contained' color='primary' type='submit'>
-                Save Palette
-              </Button>
-            </ValidatorForm>
+            <PaletteMetaForm handleSubmit={this.props.handleSubmit} />
             <Link to='/'>
               <Button variant='contained' color='secondary'>
                 Go Back
