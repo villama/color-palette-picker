@@ -142,6 +142,12 @@ class NewPaletteForm extends Component {
     this.props.history.push('/')
   }
 
+  deleteColor = colorName => {
+    this.setState({
+      colors: this.state.colors.filter(color => color.name !== colorName)
+    })
+  }
+
   render() {
     const { classes } = this.props
     const { open } = this.state
@@ -220,11 +226,10 @@ class NewPaletteForm extends Component {
               name='newColorName'
               value={this.state.newColorName}
               onChange={this.handleChange}
-              validators={['required', 'isColorNameUnique', 'isColorUnique']}
+              validators={['required', 'isColorNameUnique']}
               errorMessages={[
                 'This field is required',
-                'Color name must be unique',
-                'Color already used'
+                'Color name must be unique'
               ]}
             />
             <Button
@@ -248,6 +253,7 @@ class NewPaletteForm extends Component {
               key={color.name}
               name={color.name}
               color={color.color}
+              handleDelete={() => this.deleteColor(color.name)}
             />
           ))}
         </main>
