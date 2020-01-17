@@ -8,17 +8,16 @@ import SingleColorPalette from './components/SingleColorPalette'
 import NewPaletteForm from './components/NewPaletteForm'
 
 export default class App extends Component {
-  state = {
-    palettes: []
-  }
+  constructor(props) {
+    super(props)
 
-  componentDidMount() {
     const savedPalettes = JSON.parse(
       window.localStorage.getItem('palettes') || '[]'
     )
-    this.setState({
+
+    this.state = {
       palettes: savedPalettes.length > 0 ? savedPalettes : seedColors
-    })
+    }
   }
 
   findPalette = id => {
