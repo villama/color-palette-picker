@@ -1,3 +1,5 @@
+import sizes from './sizes'
+
 export default {
   root: {
     backgroundColor: 'gray',
@@ -5,15 +7,16 @@ export default {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center'
-    // marginBottom: '50px'
   },
   container: {
-    width: '50%',
+    width: '55%',
     display: 'flex',
     alignItems: 'flex-start',
     flexDirection: 'column',
-    flexWrap: 'wrap'
-    // padding: '50px'
+    flexWrap: 'wrap',
+    [sizes.down('xl')]: {
+      width: '60%'
+    }
   },
   nav: {
     display: 'flex',
@@ -30,6 +33,12 @@ export default {
     width: '100%',
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 30%)',
-    gridGap: '5%'
+    gridGap: '1.5rem',
+    [sizes.down('md')]: {
+      gridTemplateColumns: 'repeat(2, 50%)'
+    },
+    [sizes.down('xs')]: {
+      gridTemplateColumns: 'repeat(1, 100%)'
+    }
   }
 }
