@@ -1,7 +1,9 @@
+import sizes from './sizes'
+
 const styles = {
   root: {
-    height: '20%',
-    width: '25%',
+    width: '20%',
+    height: '25%',
     margin: '0 auto',
     display: 'inline-block',
     position: 'relative',
@@ -10,6 +12,18 @@ const styles = {
     '&:hover svg': {
       color: 'white',
       transform: 'scale(1.2)'
+    },
+    [sizes.down('lg')]: {
+      width: '25%',
+      height: '20%'
+    },
+    [sizes.down('md')]: {
+      width: '50%',
+      height: '10%'
+    },
+    [sizes.down('sm')]: {
+      width: '100%',
+      height: '5%'
     }
   },
   boxContent: {
@@ -23,7 +37,11 @@ const styles = {
     textTransform: 'uppercase',
     fontSize: '12px',
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    [sizes.down('sm')]: {
+      padding: '5px 5px 0px 5px',
+      fontSize: '9px'
+    }
   },
   deleteIcon: {
     transition: 'all 0.3s ease-in-out'
