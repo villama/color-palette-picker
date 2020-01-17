@@ -3,7 +3,7 @@ import sizes from './sizes'
 
 export default {
   ColorBox: {
-    height: '25%', // props => (props.showingFullPalette ? '25%' : '50%'),
+    height: props => (props.showingFullPalette ? '25%' : '50%'),
     width: '20%', // props => (props.showingFullPalette ? '25%' : '20%'),
     margin: '0 auto',
     display: 'inline-block',
@@ -14,17 +14,17 @@ export default {
       opacity: '1'
     },
     [sizes.down('lg')]: {
-      height: '20%',
+      height: props => (props.showingFullPalette ? '20%' : '33.333%'),
       width: '25%',
       marginBottom: '-3px'
     },
     [sizes.down('md')]: {
-      height: '10%',
+      height: props => (props.showingFullPalette ? '10%' : '20%'),
       width: '50%'
     },
     [sizes.down('xs')]: {
+      height: props => (props.showingFullPalette ? '5.3%' : '10%'),
       width: '100%',
-      height: '5.3%',
       marginBottom: '-3.0px'
     }
   },
@@ -119,7 +119,10 @@ export default {
       background: 'rgba(255, 255, 255, 0.2)',
       width: '100%',
       marginBottom: '0',
-      padding: '1rem'
+      padding: '1rem',
+      [sizes.down('xs')]: {
+        fontSize: '5rem'
+      }
     },
     '& p': {
       fontSize: '2rem',
