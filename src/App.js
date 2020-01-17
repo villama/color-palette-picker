@@ -9,7 +9,16 @@ import NewPaletteForm from './components/NewPaletteForm'
 
 export default class App extends Component {
   state = {
-    palettes: seedColors
+    palettes: []
+  }
+
+  componentDidMount() {
+    const savedPalettes = JSON.parse(
+      window.localStorage.getItem('palettes') || '[]'
+    )
+    this.setState({
+      palettes: savedPalettes.length > 0 ? savedPalettes : seedColors
+    })
   }
 
   findPalette = id => {
@@ -20,9 +29,17 @@ export default class App extends Component {
 
   savePalette = newPalette => {
     console.log(newPalette)
-    this.setState({
-      palettes: [...this.state.palettes, newPalette]
-    })
+    this.setState(
+      {
+        palettes: [...this.state.palettes, newPalette]
+      },
+      this.syncLocalStorage
+    )
+  }
+
+  syncLocalStorage() {
+    console.log(JSON.stringify(this.state.palettes))
+    window.localStorage.setItem('palettes', JSON.stringify(this.state.palettes))
   }
 
   render() {
