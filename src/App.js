@@ -28,7 +28,6 @@ export default class App extends Component {
   }
 
   savePalette = newPalette => {
-    console.log(newPalette)
     this.setState(
       {
         palettes: [...this.state.palettes, newPalette]
@@ -37,8 +36,18 @@ export default class App extends Component {
     )
   }
 
+  deletePalette = paletteId => {
+    this.setState(
+      {
+        palettes: this.state.palettes.filter(
+          palette => palette.id !== paletteId
+        )
+      },
+      this.syncLocalStorage
+    )
+  }
+
   syncLocalStorage() {
-    console.log(JSON.stringify(this.state.palettes))
     window.localStorage.setItem('palettes', JSON.stringify(this.state.palettes))
   }
 
@@ -60,7 +69,11 @@ export default class App extends Component {
           exact
           path='/'
           render={routeProps => (
-            <PaletteList palettes={this.state.palettes} {...routeProps} />
+            <PaletteList
+              palettes={this.state.palettes}
+              deletePalette={this.deletePalette}
+              {...routeProps}
+            />
           )}
         />
         <Route
