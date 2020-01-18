@@ -6,7 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete'
 class MiniPalette extends Component {
   deletePalette = evt => {
     evt.stopPropagation()
-    this.props.deletePalette()
+    this.props.openDeleteDialog()
   }
 
   render() {
