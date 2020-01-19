@@ -5,9 +5,6 @@ import { withStyles } from '@material-ui/styles'
 import styles from '../styles/PaletteListStyles'
 import { Link } from 'react-router-dom'
 import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
 import CheckIcon from '@material-ui/icons/Check'
 import CloseIcon from '@material-ui/icons/Close'
 import List from '@material-ui/core/List'
@@ -26,9 +23,7 @@ class PaletteList extends Component {
   }
 
   openDialog = callback => {
-    this.setState({ openDeleteDialog: true, paletteToDelete: callback }, () => {
-      console.log(this.state.paletteToDelete)
-    })
+    this.setState({ openDeleteDialog: true, paletteToDelete: callback })
   }
 
   closeDialog = () => {
@@ -58,9 +53,9 @@ class PaletteList extends Component {
               <CSSTransition key={p.id} classNames='fade' timeout={500}>
                 <MiniPalette
                   {...p}
-                  handleClick={() => this.goToPalette(p.id)}
-                  // deletePalette={() => this.props.deletePalette(p.id)}
-                  openDeleteDialog={() => this.openDialog(p.id)}
+                  handleClick={this.goToPalette}
+                  openDeleteDialog={this.openDialog}
+                  id={p.id}
                 />
               </CSSTransition>
             ))}

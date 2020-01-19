@@ -56,6 +56,7 @@ export default {
     },
     [sizes.down('xs')]: {
       gridTemplateColumns: 'repeat(1, 100%)'
-    }
+    },
+    paddingBottom: '50px'
   }
 }
