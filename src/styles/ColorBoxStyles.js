@@ -75,7 +75,7 @@ export default {
   },
   boxContent: {
     position: 'absolute',
-    padding: '10px',
+    padding: '100px',
     width: '100%',
     left: '0',
     bottom: '0',
