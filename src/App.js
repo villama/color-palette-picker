@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import Palette from './components/Palette'
 import seedColors from './seedColors'
 import { generatePalette } from './colorHelpers'
@@ -88,15 +88,20 @@ export default class App extends Component {
                 <Route
                   exact
                   path='/palette/:id'
-                  render={routeProps => (
-                    <Page>
-                      <Palette
-                        palette={generatePalette(
-                          this.findPalette(routeProps.match.params.id)
-                        )}
-                      />
-                    </Page>
-                  )}
+                  render={routeProps =>
+                    // TODO: routeProps.match.params.id
+                    this.findPalette(routeProps.match.params.id) ? (
+                      <Page>
+                        <Palette
+                          palette={generatePalette(
+                            this.findPalette(routeProps.match.params.id)
+                          )}
+                        />
+                      </Page>
+                    ) : (
+                      <Route render={() => <Redirect to='/' />} />
+                    )
+                  }
                 />
                 <Route
                   path='/palette/:paletteId/:colorId'
@@ -111,6 +116,7 @@ export default class App extends Component {
                     </div>
                   )}
                 />
+                <Route render={() => <Redirect to='/' />} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>
