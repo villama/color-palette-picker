@@ -2,30 +2,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-It is first a showcase of React Frontend skills and best practices, and second a functional tool for using and creating color palettes.
+It is first a showcase of React Frontend, and second a functional tool for using and creating color palettes.
 
 NPM dependencies:
 
-    "dependencies": {
-        "@material-ui/core": "^4.8.3",
-        "@material-ui/icons": "^4.5.1",
-        "@material-ui/styles": "^4.8.2",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.4.0",
-        "@testing-library/user-event": "^7.2.1",
-        "chroma-js": "^2.1.0",
-        "emoji-mart": "^2.11.2",
-        "rc-slider": "^8.7.1",
-        "react": "^16.12.0",
-        "react-color": "^2.18.0",
-        "react-copy-to-clipboard": "^5.0.2",
-        "react-dom": "^16.12.0",
-        "react-material-ui-form-validator": "^2.0.9",
-        "react-router-dom": "^5.1.2",
-        "react-scripts": "3.3.0",
-        "react-sortable-hoc": "^1.10.1",
-        "react-transition-group": "^4.3.0"
-      }
+    "@material-ui/core": "^4.8.3",
+    "@material-ui/icons": "^4.5.1",
+    "@material-ui/styles": "^4.8.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "chroma-js": "^2.1.0",
+    "emoji-mart": "^2.11.2",
+    "rc-slider": "^8.7.1",
+    "react": "^16.12.0",
+    "react-color": "^2.18.0",
+    "react-copy-to-clipboard": "^5.0.2",
+    "react-dom": "^16.12.0",
+    "react-material-ui-form-validator": "^2.0.9",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "react-sortable-hoc": "^1.10.1",
+    "react-transition-group": "^4.3.0"
 
 **### `npm start`**
 
