@@ -17,6 +17,7 @@ function generatePalette(starterPalette) {
   // Loop over colors
   for (let color of starterPalette.colors) {
     let scale = generateScale(color.color, 10).reverse()
+    scale[5] = chroma(color.color).hex()
     for (let i in scale) {
       outputPalette.colors[levels[i]].push({
         name: `${color.name} ${levels[i]}`,
