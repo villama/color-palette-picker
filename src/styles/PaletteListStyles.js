@@ -17,7 +17,7 @@ export default {
     paddingBottom: '20px',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    backgroundColor: '#3d55aa',
+    backgroundColor: '#30486e',
     backgroundImage: `url(${bg})` /* background by SVGBackgrounds.com */,
     overflow: 'scroll',
     backgroundAttachment: 'fixed',
@@ -57,6 +57,7 @@ export default {
     [sizes.down('xs')]: {
       gridTemplateColumns: 'repeat(1, 100%)'
     },
-    paddingBottom: '50px'
+    paddingBottom: '50px',
+    justifyContent: 'center'
   }
 }
