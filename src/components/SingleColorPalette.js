@@ -3,7 +3,6 @@ import './ColorBox'
 import ColorBox from './ColorBox'
 import Navbar from './Navbar'
 import PaletteFooter from './PaletteFooter'
-import { Link } from 'react-router-dom'
 import styles from '../styles/PaletteStyles'
 import { withStyles } from '@material-ui/styles'
 
@@ -31,6 +30,10 @@ class SingleColorPalette extends Component {
     this.setState({ format })
   }
 
+  navigateBack = () => {
+    this.props.history.push(`/palette/${this.props.palette.id}`)
+  }
+
   render() {
     const colorBoxes = this._shades.map(color => (
       <ColorBox
@@ -45,8 +48,9 @@ class SingleColorPalette extends Component {
         <Navbar handleChangeFormat={this.changeFormat} />
         <div className={classes.colors}>
           {colorBoxes}
-          <div className={classes.goBack}>
-            <Link to={`/palette/${this.props.palette.id}`}>GO BACK</Link>
+          <div className={classes.goBack} onClick={this.navigateBack}>
+            {/* <Link to={`/palette/${this.props.palette.id}`}>GO BACK</Link> */}
+            <button>GO BACK</button>
           </div>
         </div>
         <PaletteFooter
