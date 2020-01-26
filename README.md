@@ -1,8 +1,8 @@
 # Color Palette Picker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+First a showcase of React Frontend, and second a functional tool for using and creating color palettes.
 
-It is first a showcase of React Frontend, and second a functional tool for using and creating color palettes.
+View the live instance here: https://color-palette-picker.netlify.com/
 
 NPM dependencies:
 
